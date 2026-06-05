@@ -1,0 +1,5 @@
+curl_cffi
+beautifulsoup4
+PyYAML
+feedparser
+yt-dlp

@@ -4,6 +4,8 @@
 
 > **포기를 모르는 미친 스크레이퍼.**
 
+> Hermes adaptation: 이 fork의 `hermes-adaptation` 브랜치는 원본 `fivetaku/insane-search`를 Hermes Agent에서 쓰기 쉽도록 조정하는 작업 브랜치입니다. 자세한 내용은 [`HERMES_ADAPTATION.md`](HERMES_ADAPTATION.md)를 참고하세요.
+
 `403`. WAF. CAPTCHA. 빈 SPA. 로그인 벽. 일반 도구가 다 포기할 때, insane-search는 그제서야 시작합니다. 5단계 프로브. TLS 임퍼소네이션 자동 설치. 진짜 브라우저로 숨은 API 발견. "차단됐다"는 사이트도 결국 길이 나옵니다.
 
 API 키 없음. 가입 없음. 설정 없음. 설치하고, Claude Code가 더 이상 포기하지 않는 걸 보세요.

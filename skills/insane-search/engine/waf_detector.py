@@ -19,7 +19,11 @@ from typing import Optional
 try:
     import yaml  # PyYAML
 except ImportError:
-    yaml = None  # type: ignore
+    try:
+        from .deps import import_or_install
+        yaml = import_or_install("yaml", "PyYAML")
+    except ImportError:
+        yaml = None  # type: ignore
 
 
 PROFILES_PATH = os.path.join(os.path.dirname(__file__), "waf_profiles.yaml")

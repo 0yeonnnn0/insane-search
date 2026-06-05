@@ -93,8 +93,14 @@ def _selector_hits(body: str, selectors: list[str]) -> Optional[list[str]]:
     the caller classify as UNKNOWN vs CHALLENGE correctly (Codex review: do
     not let dependency failure masquerade as a WAF outcome).
     """
+    global BeautifulSoup
     if BeautifulSoup is None:
-        return None
+        try:
+            from .deps import import_or_install
+            bs4 = import_or_install("bs4", "beautifulsoup4")
+            BeautifulSoup = bs4.BeautifulSoup
+        except ImportError:
+            return None
     try:
         soup = BeautifulSoup(body, "html.parser")
     except Exception:

@@ -93,7 +93,11 @@ def _curl_probe(
     try:
         from curl_cffi import requests as cffi_requests
     except ImportError:
-        return None, "curl_cffi not installed"
+        try:
+            from .deps import import_or_install
+            cffi_requests = import_or_install("curl_cffi.requests", "curl_cffi")
+        except ImportError as e:
+            return None, str(e)
 
     headers = {
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
